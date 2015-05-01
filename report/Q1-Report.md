@@ -4,7 +4,7 @@ COMP3330 - Machine Intelligence
 * Beau Gibson -
 * Tyler Haigh - C3182929
 * Simon Hartcher - C3185790
-* Robert Logan -
+* Robert Logan - C3165020
 
 # Question 1 - Variations of the Two-Spiral Task #
 
@@ -74,6 +74,20 @@ optimised version faired much better without any real visible spiking.
 
 ![](images/TaskA-TrainedNN-2015-04-29_14-26-07/result.png)
 
+## Task b) ##
+
+## Task c) ##
+The neural network architecture used in Task a did not fare quite as well with the four spiral data points for this task. The network found it difficult to differentiate between classes of points and generalisation was poor. Though the speed of the network was comparable, it was unable to achieve the low error rate observed when trained on the two spiral data.
+
+![](images/TaskC-TrainedNNN/result.png)
+
+![](images/TaskC-TrainedNNN/errors.png)
+
+Given this, we sought about trialling differing combinations of learning rate and momentums to attempt to find a better architecture. The key here is finding a balance between too high a learning rate resulting in no learning at all and too low a rate resulting in the iterations being too slow. some results from our findings can be seen below.
+
+``TODO: Add images here``
+
+
 ## Task d) ##
 
 Comparing the implementation of Task A (training an artificial neural network on the two spirals task), the SVM responded extremely well to its initial values for its COST and GAMMA parameters to achieve a satisfying result as shown below:
@@ -111,5 +125,20 @@ Task A SVM Training Times
 
 **Determine experimentally what is the minimal number of hidden units required for training a 16-H-16 network successfully**
 
-According to Tom Mitchell (1997), when backpropagation is applied to the autoencoder training task, the values of the hidden layers become similar to a binary encoding based on the number of hidden units. For an 8 input autoencoder, the network assigns values that when rounded, form the binary encodings 000 to 111 (i.e. 0 to 7). From here, it can be inferred that, in general, successfully training a neural network requires a single layer of lg(2) hidden units. Hence for the task of training a 16-H-16 network, we should only require 4 hidden units on a singple sigmoid layer, to perform this task. ``TODO: Prove this in out experiments``
+According to Tom Mitchell (1997), when back propagation is applied to the autoencoder training task, the values of the hidden layers become similar to a binary encoding based on the number of hidden units. For an 8 input autoencoder, the network assigns values that when rounded, form the binary encodings 000 to 111 (i.e. 0 to 7). From here, it can be inferred that, in general, successfully training a neural network requires a single layer of lg(2) hidden units. Hence for the task of training a 16-H-16 network, we should only require 4 hidden units on a single sigmoid layer, to perform this task. ``TODO: Prove this in our experiments``
+
+# Question 3 - Classifier #
+
+**Classification for Human Activity Recognition**
+
+For this task we chose to train an SVM based on the successful architectures and results from previous questions. These have proven to be both fast and accurate for continued use. The task here was to create a function which would successfully analyse records consisting of 561 attributes and correctly classify them into one of the six following human movements:
+
+1. Walking
+2. Walking Upstairs
+3. Walking Downstairs
+4. Sitting
+5. Standing
+6. Laying
+
+Graphs below indicate that the SVM used for the task was able to classify all activities successfully with a negligible error rate.
 
